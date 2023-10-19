@@ -42,7 +42,7 @@ def lean_canvas(product, openai_model, news_urls, youtube_urls=None):
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000)
     texts = splitter.split_documents(docs)
 
-    print("Splitting articles into 500 character chunks")
+    print("Splitting articles into 1000 character chunks")
 
     # Embed each document chunk for search/retrieval
     embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
