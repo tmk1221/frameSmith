@@ -39,6 +39,7 @@ pip install -r requirements.txt
         - Note 2: Transcript texts are captured via YouTube's API. Some YouTube videos don't have transcripts. If this is the case, it's okay, the API will just return an empty string.
 
 5. Run the bot
+
 Note: This takes several minutes to complete. Progress indicators are printed to the command line.
 
 ```
