@@ -1,7 +1,7 @@
 # Lean Canvas Bot 3000
 This bot scrapes information from the web and YouTube videos, and uses an OpenAI LLM to generate a Lean Canvas based on said information.
 
-## Installation
+## Usage
 1. Clone this repository
 ```
 gh repo clone tmk1221/lean_canvas_bot
@@ -17,11 +17,9 @@ pip install -r requirements.txt
 
 3. Create a file in the root directory called `.env`, and add your OpenAI API key as shown below. No quotes necessary.
 
-<div align="center">
-  <img src="./image/api_key_example.png" alt="API Key Example" width="80%" />
-</div>
+<img src="./image/api_key_example.png" alt="API Key Example" width="80%" />
 
-4. Change the following variables in the config.json file
+4. Update the variables within `./config.json` to match your product/company.
     1. `product`: Use the product/company name that is used in the sources you provide.
 
     2. `openai_model`: The OpenAI model used to generate the Lean Canvas.
@@ -49,3 +47,5 @@ python3 ./src/generate.py
 ```
 
 6. Find your lean canvas in `./lean_canvas_output`
+
+## Optimizations
