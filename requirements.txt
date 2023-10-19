@@ -1,0 +1,10 @@
+beautifulsoup4==4.12.2
+langchain==0.0.272
+pydantic==1.10.9
+python-dotenv==1.0.0
+tiktoken==0.4.0
+playwright==1.37.0
+openai==0.27.9
+chromadb==0.4.7
+youtube-transcript-api==0.6.1
+pytube==15.0.0

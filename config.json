@@ -1,0 +1,19 @@
+{
+    "product": "Asimov",
+
+    "openai_model": "gpt-3.5-turbo",
+
+    "news_urls": ["https://a16z.com/2017/12/19/asimov/",
+    "https://www.asimov.com/news/asimov-raises-200-million-to-advance-therapeutics-design-and-manufacturing-with-synthetic-biology",
+    "https://www.asimov.com/news/asimov-labs",
+    "https://www.asimov.com/news/github",
+    "https://www.asimov.com/news/aav-foundations",
+    "https://www.asimov.com/news/ai-promoters",
+    "https://techcrunch.com/2017/12/19/bio-programming-toolkit-maker-asimov-launches-with-4-5m-from-andreessen-horowitz/"],
+
+    "youtube_urls": ["https://www.youtube.com/watch?v=F8dIrX3VZyE",
+    "https://www.youtube.com/watch?v=Cz_MRRk-DQo",
+    "https://www.youtube.com/watch?v=I6L2uscsQgE"]
+    
+  }
+  
