@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 5. Run the bot
 
-Note: This takes several minutes to complete. Progress indicators are printed to the command line.
+    Note: This takes several minutes to complete. Progress indicators are printed to the command line.
 
 ```
 python3 ./src/generate.py
