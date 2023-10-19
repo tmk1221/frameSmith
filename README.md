@@ -15,7 +15,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Create a file in the root directory called `.env`, and add your OpenAI API as shown below.
+3. Create a file in the root directory called `.env`, and add your OpenAI API key as shown below. No quotes necessary.
+
 ![API Key Example](./image/api_key_example.png)
 
 4. Change the following variables in the config.json file
@@ -33,13 +34,15 @@ pip install -r requirements.txt
 
     4. `youtube_urls`: YouTube videos specific to your product/company.
 
-        - Note 1: You do not need to provide any YouTube videos for the bot to run. If you do not want to use any YouTube videos, then replace the brackets with `None` in the config.json file.
+        - Note 1: You do not need to provide any YouTube videos for the bot to run. If you do not want to use any YouTube videos, then replace the brackets with `None` in the `./config.json`.
 
         - Note 2: Transcript texts are captured via YouTube's API. Some YouTube videos don't have transcripts. If this is the case, it's okay, the API will just return an empty string.
 
 5. Run the bot
+Note: This takes several minutes to complete. Progress indicators are printed to the command line.
+
 ```
 python3 ./src/generate.py
 ```
 
-6. Lean Canvas output can be found in `./lean_canvas_output`
+6. Find your lean canvas in `./lean_canvas_output`
