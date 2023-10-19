@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 3. Create a file in the root directory called `.env`, and add your OpenAI API key as shown below. No quotes necessary.
 
-<img src="./image/api_key_example.png" alt="API Key Example" width="80%" />
+    <img src="./image/api_key_example.png" alt="API Key Example" width="80%" />
 
 4. Update the variables within `./config.json` to match your product/company.
     1. `product`: Use the product/company name that is used in the sources you provide.
