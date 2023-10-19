@@ -36,7 +36,7 @@ def lean_canvas(product, openai_model, news_urls, youtube_urls=None):
     #Print cleaned texts to ensure they were scraped and cleaned properly
     #print(docs)
 
-    print("Articles loaded")
+    print("Data sour loaded")
 
     # Split documents into 1000 character chunks
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000)
