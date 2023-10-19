@@ -55,15 +55,18 @@ python3 ./src/generate.py
 1. **Change data sources**
 Currently the Lean Canvas Bot is setup to scrape and clean data from blogs and news websites, and retreive transcripts from YouTube videos. Thus, data is loaded via URLs, which is limited considering the diversity of data sources out there.
 
-Langchain supports [100+ specific document loaders](https://python.langchain.com/docs/integrations/document_loaders) from which you can load data. You can look into replacing lines 16-39 in `./lean_canvas_generator.py` to load text data in from other sources.
+    Langchain supports [100+ specific document loaders](https://python.langchain.com/docs/integrations/document_loaders) from which you can load data. You can look into replacing lines 16-39 in `./lean_canvas_generator.py` to load text data in from other sources.
 
+<div style="text-align: center;">
 <img src="./image/data.png" alt="Data" width="80%" />
-
+</div>
 
 2. **Replace Lean Canvas with any framework**
 If the Lean Canvas framework doesn't suit your needs, this bot can be used to generate any framework. Think about the questions you would need to ask your docstore in order to generate each section of your framework. Currently, the Lean Canvas Bot asks 9 questions of the docstore - one question for each section of a Lean Canvas. Replace the questions on lines 75-85 in `./lean_canvas_generator.py` with your own questions. Of course, you will still need to load in information relevant to the framework you desire.
 
+<div style="text-align: center;">
 <img src="./image/framework.png" alt="Framework" width="80%" />
+</div>
 
 
 3. **Document splitting**
