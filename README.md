@@ -16,12 +16,11 @@ pip install -r requirements.txt
 ```
 
 3. Create a file in the root directory called `.env`, and add your OpenAI API as shown below.
-```
 
 4. Change the following variables in the config.json file
 - `product`: Use the product/company name that is used in the sources you provide.
 
--  `openai_model`: The OpenAI model used to generate the Lean Canvas.
+- `openai_model`: The OpenAI model used to generate the Lean Canvas.
     Note: At the time of writing, the most common options are: "gpt-3.5-turbo" or "gpt-4". GPT-4 is a more powerful model, but will cost more to use.
 
     For up-to-date information about available models, see [OpenAI's Model Overview](https://platform.openai.com/docs/models/overview)
