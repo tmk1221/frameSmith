@@ -38,7 +38,7 @@ def lean_canvas(product, openai_model, news_urls, youtube_urls=None):
 
     print("Articles loaded")
 
-    # Split documents into 500 character chunks
+    # Split documents into 1000 character chunks
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000)
     texts = splitter.split_documents(docs)
 
