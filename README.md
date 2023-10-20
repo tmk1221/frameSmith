@@ -1,7 +1,9 @@
 # Lean Canvas Bot 3000
 This bot scrapes information from the web and YouTube videos, and uses an OpenAI LLM to generate a Lean Canvas based on said information.
 
+<div align="center">
 <img src="./image/top.png" alt="API Key Example" width="80%" />
+</div>
 
 ## Setup
 1. Clone and navigate into the directory.
@@ -53,7 +55,8 @@ python3 ./src/generate.py
 
 ## Adaptation Considerations
 1. **Change data sources**
-Currently the Lean Canvas Bot is setup to scrape and clean data from blogs and news websites, and retreive transcripts from YouTube videos. Thus, data is loaded via URLs, which is limited considering the diversity of data sources out there.
+
+    Currently the Lean Canvas Bot is setup to scrape and clean data from blogs and news websites, and retreive transcripts from YouTube videos. Thus, data is loaded via URLs, which is limited considering the diversity of data sources in existence.
 
     Langchain supports [100+ specific document loaders](https://python.langchain.com/docs/integrations/document_loaders) from which you can load data. You can look into replacing lines 16-39 in `./lean_canvas_generator.py` to load text data in from other sources.
 
@@ -62,11 +65,19 @@ Currently the Lean Canvas Bot is setup to scrape and clean data from blogs and n
 </div>
 
 2. **Replace Lean Canvas with any framework**
-If the Lean Canvas framework doesn't suit your needs, this bot can be used to generate any framework. Think about the questions you would need to ask your docstore in order to generate each section of your framework. Currently, the Lean Canvas Bot asks 9 questions of the docstore - one question for each section of a Lean Canvas. Replace the questions on lines 75-85 in `./lean_canvas_generator.py` with your own questions. Of course, you will still need to load in information relevant to the framework you desire.
+
+    If the Lean Canvas framework doesn't suit your needs, this bot can be used to generate any framework. Think about the questions you would need to ask your docstore in order to generate each section of your framework. Currently, the Lean Canvas Bot asks 9 questions of the docstore - one question for each section of a Lean Canvas. Replace the questions on lines 75-85 in `./lean_canvas_generator.py` with your own questions. Of course, you will still need to load in information relevant to the framework you desire.
 
 <div align="center">
 <img src="./image/framework.png" alt="Framework" width="80%" />
 </div>
 
+3. **Tradeoffs with Document Splitting**
+    
+    Document splitting refers to how entire documents are split into smaller documents. This is necessary because usually entire documents exceed LLM context windows (e.g. 32k tokens for GPT-4). The current implementation is to split the scraped web texts and transcripts into 1000 character chunks.
 
-3. **Document splitting**
+    There is a tradeoff between larger and smaller documents. Larger documents will provide more context to the LLM; however, the embeddings are less specific for larger documents. This has the effect of "diluting" the semantic meaning of the documents, which makes it more difficult to return relevant documents. Smaller documents, on the other hand, have more specific embeddings, but provide less context to the LLM. If documents are too small, they might only return part of the answer, where the rest gets cutout and placed in subsequent documents.
+
+    There are workarounds for this. See Langchain's [Parent Document Retriever](https://js.langchain.com/docs/modules/data_connection/retrievers/how_to/parent-document-retriever), or for a more general discussion, see Pinecone's [Chunking Strategies for LLM Applications](https://www.pinecone.io/learn/chunking-strategies/).
+
+    In any case, if your Bot performance is suffering, document splitting is one of the first places I would look to optimize things. It plays a big part in the quality and relevance of the documents that get passed into the LLM prompt.
