@@ -1,6 +1,6 @@
 # frameSmith
 
-<img src="./images/frameSmith_logo_banner.png" alt="frameSmith logo"/>
+<img src="./image/frameSmith_logo_banner.png" alt="frameSmith logo"/>
 
 ***frameSmith*** scrapes information from the web and YouTube videos, and uses an OpenAI LLM to generate a framework of your chosing. It comes preconfigured to generate a [Lean Canvas](https://www.leancanvas.com/), which summarizes a product or company's strategy.
 
