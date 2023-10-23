@@ -11,7 +11,7 @@ import csv
 from clean_scrape import extract_clean_text, remove_extra_newlines_and_tabs
 
 # Generates a Framework
-def framer(product, framework_questions, openai_model, news_urls, youtube_urls=None):
+def framer(product, framework_questions, prompt_template, openai_model, news_urls, youtube_urls=None):
     
    # Load in News
     loader = AsyncChromiumLoader(news_urls)
@@ -53,15 +53,7 @@ def framer(product, framework_questions, openai_model, news_urls, youtube_urls=N
     # Setup chains
     llm = ChatOpenAI(temperature=0, model=openai_model)
 
-    template = """You are a research chatbot having a conversation with a human.
-
-    Given the following information about {product}, give a professional and detailed answer to the final question.
-    
-    {context}
-
-    {chat_history}
-    Human: {human_input}
-    Chatbot:"""
+    template = prompt_template
 
     prompt = PromptTemplate(
         input_variables=["chat_history", "human_input", "context"], template=template, partial_variables={"product": product}

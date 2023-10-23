@@ -16,11 +16,12 @@ product = config["product"]
 openai_model = config["openai_model"]
 news_urls = config["news_urls"]
 youtube_urls = config["youtube_urls"]
-framework_questions = config["framework_questions"]
+prompt_template = config["prompt_template"]
 
+framework_questions = config["framework_questions"]
 framework_questions_formatted = {key: value.format(product=product) for key, value in framework_questions.items()}
 
-framer(product, framework_questions_formatted, openai_model, news_urls, youtube_urls)
+framer(product, framework_questions_formatted, prompt_template, openai_model, news_urls, youtube_urls)
 
 # Record end time
 end_time = time.time()
