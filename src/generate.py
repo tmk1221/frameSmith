@@ -1,7 +1,7 @@
 import time
 import dotenv
 import json
-from lean_canvas_generator import lean_canvas
+from framework_generator import framer
 
 # Record start time
 start_time = time.time()
@@ -16,8 +16,11 @@ product = config["product"]
 openai_model = config["openai_model"]
 news_urls = config["news_urls"]
 youtube_urls = config["youtube_urls"]
+framework_questions = config["framework_questions"]
 
-lean_canvas(product, openai_model, news_urls, youtube_urls)
+framework_questions_formatted = {key: value.format(product=product) for key, value in framework_questions.items()}
+
+framer(product, framework_questions_formatted, openai_model, news_urls, youtube_urls)
 
 # Record end time
 end_time = time.time()

@@ -10,8 +10,8 @@ from langchain.chat_models import ChatOpenAI
 import csv
 from clean_scrape import extract_clean_text, remove_extra_newlines_and_tabs
 
-# Generates a Lean Canvas
-def lean_canvas(product, openai_model, news_urls, youtube_urls=None):
+# Generates a Framework
+def framer(product, framework_questions, openai_model, news_urls, youtube_urls=None):
     
    # Load in News
     loader = AsyncChromiumLoader(news_urls)
@@ -36,7 +36,7 @@ def lean_canvas(product, openai_model, news_urls, youtube_urls=None):
     #Print cleaned texts to ensure they were scraped and cleaned properly
     #print(docs)
 
-    print("Data sour loaded")
+    print("Data sources loaded")
 
     # Split documents into 1000 character chunks
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000)
@@ -71,20 +71,10 @@ def lean_canvas(product, openai_model, news_urls, youtube_urls=None):
         llm, chain_type="stuff", memory=memory, prompt=prompt
     )
     
-    # Lean Canvas Questions
-    queries = {
-    "overall": f"What is {product}? Give a description of what it does and why it exists.",
-    "target_users": f"Who is {product} intended for? These groups of people are called target users. Target users are people who have either already adopted {product}, or who {product} is intended for. If this information wasn't provided, list some plausible target users of {product}.",
-    "problems": f"What are the reasons for target users to seek out, and adopt, {product}? These reasons are usually problems or pain points the target users are experiencing. Reasons can also be the needs and desires of target users. If this information wasn't provided, list some plausible reasons for target users to seek out and adopt {product}. You don't need to explain how {product} addresses these reasons yet, that will come next.",
-    "solutions": f"How does {product} address each one of these reasons? In other words, how does {product} solve user problems, assuage user pain points, or fulfill user needs and desires? If this information wasn't provided, list the plausible ways {product} could address each one of these reasons.",
-    "unfair_advantage": f"What makes {product} difficult to compete with? These are {product}'s competitive advantages, or the barriers to entry faced by its competitors. If this information wasn't provided, list some plausible competitive advantages and barriers to entry.",
-    "unique_value_proposition": f"What makes {product} unique or special compared to others? This should be a 2-3 sentence unique value proposition.",
-    "channels": f"Which channels does {product} use to reach its target users? Channels include where {product} is marketed to its potential users and where users access {product} (e.g. mobile app, website, etc.). If this information wasn't provided, list some plausible channels for {product}.",
-    "costs": f"What operating costs are incurred by {product} during development, launch, and maintainance. If this information wasn't provided, list some plausible operating costs.",
-    "revenue": f"How does {product} generate revenue? Give a description of plausible business models and revenue streams for {product}."
-    }
+    # Framework questions
+    queries = framework_questions
 
-    # Generate Lean Canvas
+    # Generate Framework
     results = {}
     for key, query in queries.items():
         docs = docsearch.similarity_search(query)
@@ -94,7 +84,7 @@ def lean_canvas(product, openai_model, news_urls, youtube_urls=None):
         print(f"✅ {key.replace('_', ' ').capitalize()}")
 
     # Write to CSV
-    filename = f"./lean_canvas_output/{product}_lean_canvas.csv"
+    filename = f"./framework_output/{product}_framework.csv"
 
     print("Writing to filename: ", filename)
 
