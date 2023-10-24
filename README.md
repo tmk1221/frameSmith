@@ -2,13 +2,17 @@
 
 <img src="./image/frameSmith_logo_banner.png" alt="frameSmith logo"/>
 
-***frameSmith*** scrapes information from the web and YouTube videos, and uses an OpenAI LLM to intelligently compress this raw information into a framework of your chosing. It comes preconfigured to generate a [Lean Canvas](https://www.leancanvas.com/), which summarizes a product or company's strategy.
+***frameSmith*** scrapes information from the web and YouTube videos, and uses an OpenAI LLM to intelligently compress this raw information into any framework you define. It comes preconfigured to generate a [Lean Canvas](https://www.leancanvas.com/), which summarizes a product or company's strategy.
 
 <div align="center">
-<img src="./image/top.png" alt="API Key Example" width="80%" />
+<img src="./image/top.png" alt="API Key Example" width="100%" />
 </div>
 
-The user starts by gathering web sources (blogs, news articles, YouTube videos) that contain high-quality information related to the framework. Then, the user lists the questions needed to generate each section of the framework. An AI will then scour the sources for relevant information, and summarize it to "fill-in" a section of the framework.
+The user starts by gathering web sources (blogs, news articles, YouTube videos) that contain high-quality information related to the company of interest. Then, the user lists the questions needed to generate each section of the framework. An AI will then scour the sources and summarize relevant information in order to "fill-in" each section of the framework.
+
+<div align="center">
+<img src="./image/insert_framework.png" alt="Insert Framework" width="100%" />
+</div>
 
 ## Setup
 1. Clone this repository, and navigate into the folder.
