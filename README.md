@@ -49,11 +49,11 @@ pip install -r requirements.txt
 
     5. `prompt_template`: Every prompt sent to OpenAI LLM is based on this template.
 
-        You can change the AI's responses based on the description you give it here.
+        You can change the AI's responses based on the description you give it here (e.g. "You are an experienced Market Research professional who words things as simply as possible, and usese marketing terminology whenever appropriate.")
 
         Notice the bracketed variables within the text string: {product}, {context}, {chat_history}, {human_input}. These exact variables must be present in whatever you change the prompt_template to. The {product} is self-explanatory. {context} is where the relevant documents are inserted from the sources you provided. {chat_history} feeds in the last question-answer pair. And, finally, {human_input} is the specific query for that prompt (e.g. "Q1...").
 
-    6. `framework_questions`: The questions needed to generate the sections of your framework.
+    6. `framework_questions`: The questions needed to generate the sections of your framework. The default is for a Lean Canvas.
 
         Notice the `{product}` variable within the text strings. You need to mimic this exactly if you replace them with your own questions.
 
